@@ -10,27 +10,103 @@
 </head>
 <body>
 
-    <nav id="app-nav">
+    <nav id="app-nav" v-cloak>
         <ul class="nav-ul">
             <li class="nav-li"><img class="nav-logo" v-bind:src="img.logo" ></li>
             <li class="nav-li">
-                <select class="nav-search" v-model="select">
+                <select 
+                    v-model="select"
+                    class="nav-search" >
                     <option value="people">Personas</option>
                     <option value="vehicles">Veh&iacute;culos</option>
+                    <option value="films">Pel&iacute;culas</option>
+                    <option value="planets">Planetas</option>
+                    <option value="species">Especies</option>
+                    <option value="starships">Naves</option>
                 </select>
-                <input class="nav-search" type="search" placeholder="Ingresa busqueda" v-model="query">
+                <input
+                    v-model="query" 
+                    v-on:keyup.enter="Buscar" 
+                    class="nav-search" type="search" placeholder="Ingresa busqueda">
                 <button
-                    v-on:click="Buscar"
-                ><img v-bind:src="img.search" alt="search" class="nav-search-icon"></button>
+                    v-on:click="Buscar">
+                    <img 
+                        v-bind:src="img.search" 
+                        alt="search" class="nav-search-icon">
+                </button>
             </li>
         </ul>
     </nav>
 
-    <main>
-
+    <main id="app-main" v-cloak>
+        <div
+            v-if="resultados.length == 0">
+            <span>Sin Resultados</span>
+        </div>
+        <div
+            v-if="resultados.length > 0"
+            class="Cabeceras">
+            <span v-html="cabeceras[0]"></span>
+            <span v-html="cabeceras[1]"></span>
+            <span v-html="cabeceras[2]"></span>
+        </div>
+        <div
+            v-for="resultado in resultados">
+            <div 
+                v-if="select == 'people'"
+                class="Resultado" >
+                <span>{{resultado.name}}</span>
+                <span>{{resultado.gender}}</span>
+                <span>{{resultado.birth_year}}</span>
+            </div>
+            <div
+                v-if="select == 'films'"
+                class="Resultado" >
+                <span>{{resultado.title}}</span>
+                <span>{{resultado.director}}</span>
+                <span>{{resultado.episode_id}}</span>
+            </div>
+            <div
+                v-if="select == 'starships'"
+                class="Resultado" >
+                <span>{{resultado.name}}</span>
+                <span>{{resultado.model}}</span>
+                <span>{{resultado.hyperdrive_rating}}</span>
+            </div>
+            <div
+                v-if="select == 'vehicles'"
+                class="Resultado" >
+                <span>{{resultado.name}}</span>
+                <span>{{resultado.model}}</span>
+                <span>{{resultado.max_atmosphering_speed}}</span>
+            </div>
+            <div
+                v-if="select == 'species'"
+                class="Resultado" >
+                <span>{{resultado.name}}</span>
+                <span>{{resultado.classification}}</span>
+                <span>{{resultado.language}}</span>
+            </div>
+            <div
+                v-if="select == 'planets'"
+                class="Resultado" >
+                <span>{{resultado.name}}</span>
+                <span>{{resultado.gravity}}</span>
+                <span>{{resultado.climate}}</span>
+            </div>
+        </div>
     </main>
 
-
+    <section id="prev-next" v-if="count" v-cloak>
+        <button 
+            v-bind:disabled="previous == null ? true : false"
+            v-on:click="Actualizar(previous)">
+            Anterior</button>
+        <button 
+            v-bind:disabled="next == null ? true : false"
+            v-on:click="Actualizar(next)">
+            Siguiente</button>
+    </section>
     <script src="index.js"></script>
 </body>
 </html>

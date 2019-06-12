@@ -43,3 +43,47 @@ body
     width: 30px;
     height: 30px;
 }
+
+main
+{
+    width: 70vw;
+}
+
+.Resultado
+{
+    display: flex;
+    padding: 10px 0;
+    margin-top: 5px;
+}
+.Resultado span
+{
+    width: 33.3%;
+}
+
+.Cabeceras
+{
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    border: 1px solid #41B883;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+.Cabeceras span
+{
+    width: 33.3%;
+}
+
+#prev-next
+{
+    display: flex;
+    width: 70vw;
+    justify-content: space-around;
+}
+
+
+[v-cloak]
+{
+    display: none;
+}
