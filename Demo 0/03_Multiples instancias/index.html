@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <nav id="app-nav">
+        <ul class="nav-ul">
+            <li class="nav-li"><img class="nav-logo" v-bind:src="img.logo" ></li>
+            <li class="nav-li">
+                <select class="nav-search" v-model="select">
+                    <option value="people">Personas</option>
+                    <option value="vehicles">Veh&iacute;culos</option>
+                </select>
+                <input class="nav-search" type="search" placeholder="Ingresa busqueda" v-model="query">
+                <button
+                    v-on:click="Buscar"
+                ><img v-bind:src="img.search" alt="search" class="nav-search-icon"></button>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+
+    </main>
+
+
+    <script src="index.js"></script>
+</body>
+</html>

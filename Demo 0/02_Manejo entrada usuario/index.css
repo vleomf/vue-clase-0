@@ -1,0 +1,35 @@
+#app
+{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+#app input
+{
+    margin: 15px 0;
+    text-align: center;
+}
+.Botones
+{
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.Botones button
+{
+    width: 45%;
+}
+.Alerta
+{
+    text-align: center;
+}
+
+.Alerta--ok
+{
+    color: green;
+}
+
+.Alerta--error
+{
+    color: red;
+}
