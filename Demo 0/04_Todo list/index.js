@@ -1,9 +1,12 @@
-//  Componente global
+//  Componente local
 let ElementoLista = {
     props:['pendiente'],
     template:`<li class="lista__elemento">
         <span>{{pendiente}}</span>
-        <button v-on:click="Remover">Remover</button>
+        <button 
+            v-on:click="Remover">
+            Remover
+        </button>
     </li>`,
     methods:
     {
@@ -14,7 +17,7 @@ let ElementoLista = {
         }
     }
 };
-
+//  Componente local
 let NuevaTarea = {
     data: function()
     {
@@ -25,6 +28,7 @@ let NuevaTarea = {
     template:`<div class="lista-nuevaTarea">
         <input 
             v-model="tarea"
+            v-on:keyup.enter="Agregar"
             type="text" placeholder="Escribe Tarea"/>
         <button
             v-on:click="Agregar">
