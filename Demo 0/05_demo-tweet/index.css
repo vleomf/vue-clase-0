@@ -1,0 +1,90 @@
+.tweet
+{
+    height: 250px;
+    width:  500px;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 15px;
+}
+
+.tweet__cabecera
+{
+    height: 80px;
+    width: 100%;
+
+    display: flex; /* FILA */
+
+    justify-content: space-between;
+}
+
+.cabecera__imagen
+{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.cabecera__logo
+{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+}
+
+.tweet__contenido
+{
+    height: 110px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tweet__mensaje
+{
+    font-weight: bolder;
+    font-size: 2.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.tweet__pie
+{
+    width: 100%;
+    height: calc( 250px - 100px - 80px );
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pie__retweet
+{
+    height: calc( 250px - 100px - 80px - 35px);
+    width: calc( 250px - 100px - 80px - 35px);
+    margin-right: 20px;
+}
+.pie__mensaje
+{
+    height: calc( 250px - 100px - 80px - 35px);
+    width: calc( 250px - 100px - 80px - 35px);
+    margin-right: 20px;
+}
+.pie__corazon
+{
+    height: calc( 250px - 100px - 80px - 35px);
+    width: calc( 250px - 100px - 80px - 35px);
+}
+.pie__corazon:hover
+{
+    cursor: pointer;
+}
+
+.contenedor
+{
+    display: flex;
+}

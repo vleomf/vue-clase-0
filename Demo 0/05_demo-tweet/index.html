@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo Tweet</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<script type="text/x-template" id="tweet">
+    <div class="tweet">
+        <tweet__cabecera
+            v-bind:usuario="tweet.usuario"
+        ></tweet__cabecera>
+        <tweet__contenido
+            v-bind:mensaje="tweet.msg"
+        ></tweet__contenido>
+        <tweet__pie></tweet__pie>
+    </div>
+</script>
+
+<script type="text/x-template" id="tweet__cabecera">
+    <div class="tweet__cabecera">
+        <div class="contenedor">
+            <img class="cabecera__imagen"  v-bind:src="usuario.img" alt="">
+            <div class="cabecera__usuario">
+                <span class="usuario__nombre">{{usuario.nombre}}</span>
+                <span class="usuario__alias">{{usuario.alias}}</span>
+            </div>
+        </div>
+        <img class="cabecera__logo" src="./img/twitter_bird-512.png" alt="">
+    </div>
+</script>
+
+<script type="text/x-template" id="tweet__contenido">
+    <div class="tweet__contenido">
+        <p class="tweet__mensaje">{{mensaje}}</p>
+    </div>
+</script>
+
+<script type="text/x-template" id="tweet__pie">
+    <div class="tweet__pie">
+        <div class="contenedor">
+            <img class="pie__retweet" src="./img/retweet-512.png" alt="">
+            <img class="pie__mensaje" src="./img/reply-512.png" alt="">
+            <img class="pie__corazon" 
+                v-bind:src="corazonUrl" 
+                v-on:click="CambiarCorazon"
+                alt="">
+        </div>
+        <span>{{fecha}}</span>
+    </div>
+</script>
+
+<body>
+    <div id="app">
+        <tweet 
+            v-for="(tweet , indx) in tweets" 
+            v-bind:tweet="tweet" 
+            v-bind:key="indx">
+        </tweet>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
